@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Mi Idle Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="game.css">
 </head>
 <body>
@@ -84,7 +85,7 @@
       if (coins >= upgradeCost) {
         coins -= upgradeCost;
         coinsPerSecond += 1;
-        upgradeCost = Math.round(upgradeCost * 1.5);
+        upgradeCost = Math.round(upgradeCost * 1.5); // cada vez más caro
         updateUI();
         saveGame();
         addLog('Has comprado una mejora (+1 moneda/seg).');
@@ -93,7 +94,7 @@
       }
     });
 
-    // --- Bucle idle ---
+    // --- Bucle idle (ganancia automática) ---
     function gameLoop() {
       coins += coinsPerSecond;
       updateUI();
@@ -103,7 +104,7 @@
     // --- Inicialización ---
     loadGame();
     updateUI();
-    setInterval(gameLoop, 1000);
+    setInterval(gameLoop, 1000); // cada segundo
 
   </script>
 </body>
